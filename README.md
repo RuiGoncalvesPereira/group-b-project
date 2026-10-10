@@ -15,17 +15,16 @@ Possible app flow:
 
 ### Marisa
 
-As a fashion icon,
-I want to impact global fashion trends,
-so that I can become an influential individual in the fashion world.
+As a student,
+i want to to check my answers and show my final score after the quiz,
+so that I can see how well I performed.
 
-As a tiered long-serving soldier,
-I want to life the rest of my life in peace and retire,
-so that i can spent more time on myself and rest.
-
-As an employee of a call center,
-i want to prioretize the feelings of the customer and listen to them carfully,
-so that I can communicate with them better and help them.
+As a student,
+i want to the app to select Random questions,
+so that I can practice with a different set each time.
+As a student,
+i want the app to save wrong answered questions,
+so that i know on which questions i have to study more.
 
 ### Dayhe
 
