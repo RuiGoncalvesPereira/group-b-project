@@ -1,29 +1,33 @@
+
 # Group B Project: Flashcard Quiz
 
 ## Project problem
 
-Learners need a simple way to practise subjects with flashcards, check their answers, and see their scores. We propose a Python terminal application that loads questions from a file and lets players review past results. We will clarify the final scope with the teacher.
+Learners need a simple way to practise subjects with flashcards, check their answers, and track their progress. We propose a Python terminal application that loads flashcards from a file and allows learners to review their results.
+
+The quiz uses short-answer questions with predefined correct answers. Answers are checked without considering capitalization or spaces at the beginning or end. Each quiz includes all questions from the selected chapter in a random order.
 
 Possible app flow:
 
-1. Show a menu; let the player choose a topic; let the player quit
-2. Load questions from a file; select five at random; show each question
-3. Check answers; keep score; show the final result
-4. Save results to a file; show previous results; handle invalid input or missing files
+1. Show a menu to start a quiz, view past scores, manage flashcards, or quit.
+2. Let the player choose a chapter and load its questions in a random order.
+3. Show questions one at a time, check answers, and display the final score.
+4. Allow the player to review or retry mistakes and view previous results.
+5. Save quiz results to a file and handle invalid input or file errors.
 
 ## User stories
 
 ### Marisa
 
-#### 1. Main menu
+#### 1. Add flashcards
 
-As a learner, I want a terminal menu so that I can choose what to do.
+As a learner, I want to add flashcards so that I can expand my study material.
 
 Acceptance criteria:
 
-- The menu offers “Start Quiz,” “Past Scores,” and “Quit.”
-- Invalid input displays an error and lets me try again.
-- Selecting “Quit” closes the application.
+- Given I choose to add a flashcard, when I enter a chapter, question, and correct answer, then the flashcard is saved.
+- Given I leave a required field empty, when I try to save, then the app displays an error.
+- Given I add a flashcard, when I restart the app, then the flashcard is still available.
 
 #### 2. Final score
 
@@ -31,9 +35,9 @@ As a learner, I want to see my final score so that I know how well I performed.
 
 Acceptance criteria:
 
-- After the quiz, the app shows the number of correct and incorrect answers.
-- It also shows the percentage correct.
-- Three correct answers out of five produce a score of 60%.
+- Given I finish a quiz, when the results appear, then the app shows my correct and incorrect answers.
+- Given I finish a quiz, when the score is calculated, then the app displays the percentage correct.
+- Given I answer three out of five questions correctly, when the result appears, then the score is 60%.
 
 #### 3. Review mistakes
 
@@ -41,32 +45,31 @@ As a learner, I want to review my incorrect answers so that I know what to study
 
 Acceptance criteria:
 
-- After the quiz, I can choose to review mistakes.
-- The app shows each incorrect question, my answer, and the correct answer.
-- If I made no mistakes, it displays “No mistakes to review.”
+- Given I made mistakes, when I choose to review them, then the app shows each question, my answer, and the correct answer.
+- Given I made no mistakes, when I choose to review them, then the app displays "No mistakes to review."
 
 ### Dayhe
 
 #### 1. Choose a chapter
 
-As a learner, I want to choose a chapter so that I can focus on the material I need to study.
+As a learner, I want to choose a chapter so that I can focus on specific study material.
 
 Acceptance criteria:
 
-- The app displays the available chapters in a numbered terminal menu.
-- My selection determines which chapter the quiz uses.
-- Invalid selections display an error and let me try again.
-- If no chapters are available, the app displays an explanatory message.
+- Given chapters are available, when I start a quiz, then the app displays them in a numbered menu.
+- Given I select a chapter, when the quiz starts, then only questions from that chapter are used.
+- Given I enter an invalid selection, when the app checks my input, then it displays an error and lets me try again.
+- Given no chapters are available, when I start a quiz, then the app displays an explanatory message.
 
-#### 2. Choose the number of questions
+#### 2. View quiz progress
 
-As a learner, I want to choose how many questions to answer so that I can control the length of my quiz.
+As a learner, I want to see my quiz progress so that I know how many questions are left.
 
 Acceptance criteria:
 
-- The app shows how many questions are available in the selected chapter.
-- I can enter a whole number between one and the available question count.
-- Invalid input displays an error and lets me try again.
+- Given I start a quiz, when a question appears, then the app displays the current question number and total questions.
+- Given I answer a question, when the next question appears, then the question number increases.
+- Given I answer the final question, when the answer is checked, then the quiz ends and displays my result.
 
 #### 3. View past scores
 
@@ -74,44 +77,44 @@ As a learner, I want to view my past scores so that I can compare my performance
 
 Acceptance criteria:
 
-- “Past Scores” displays saved results, newest first.
-- Each result shows the chapter, date/time, correct answers out of total questions, and percentage.
-- If no results exist, the app displays “No previous results.”
+- Given previous results exist, when I select "Past Scores," then the app displays them newest first.
+- Given results are displayed, then each result shows the chapter, date/time, correct answers out of total questions, and percentage.
+- Given no results exist, when I select "Past Scores," then the app displays "No previous results."
 
 ### Rui
 
 #### 1. Check answers
 
-As a learner, I want feedback after each answer so that I can learn from mistakes.
+As a learner, I want feedback after each answer so that I can learn from my mistakes.
 
 Acceptance criteria:
 
-- The app displays whether my answer is correct or incorrect.
-- Capitalization and spaces at the beginning or end do not affect the comparison.
-- Incorrect answers reveal the correct answer.
-- Empty answers are rejected without advancing the quiz.
+- Given I submit a short answer, when the app compares it with the predefined answer, then it displays whether it is correct or incorrect.
+- Given my answer differs only in capitalization or surrounding spaces, when it is checked, then it is accepted as correct.
+- Given my answer is incorrect, when feedback appears, then the app displays the correct answer.
+- Given I submit an empty answer, when the app checks my input, then it displays an error without moving to the next question.
 
-#### 2. Save results
+#### 2. Edit flashcards
 
-As a learner, I want my quiz results saved so that I can review them later.
+As a learner, I want to edit existing flashcards so that I can correct mistakes in my study material.
 
 Acceptance criteria:
 
-- Completed quizzes are saved with their chapter, date/time, total questions, correct answers, and percentage.
-- New results preserve previous results.
-- Saved results remain available after restarting the app.
-- If saving fails, the app displays an error instead of a success message.
+- Given flashcards exist, when I choose to edit one, then the app lets me select a flashcard.
+- Given I select a flashcard, when I change its question or correct answer, then the changes are saved.
+- Given I enter an empty question or answer, when I try to save, then the app displays an error.
+- Given I edit a flashcard, when I restart the app, then the changes are still available.
 
 #### 3. Filter past scores
 
-As a learner, I want to filter past scores by chapter so that I can track my progress in a particular subject.
+As a learner, I want to filter past scores by chapter so that I can track my progress in a specific subject.
 
 Acceptance criteria:
 
-- I can select a chapter or choose to show all results.
-- Matching results appear newest first.
-- Invalid selections display an error and let me try again.
-- If no results match, the app displays an explanatory message.
+- Given past results exist, when I choose to filter them, then I can select a chapter or show all results.
+- Given I select a chapter, when the results appear, then only matching results are displayed, newest first.
+- Given I enter an invalid selection, when the app checks my input, then it displays an error and lets me try again.
+- Given no results match, when the filter is applied, then the app displays an explanatory message.
 
 ### Amanuel
 
@@ -121,20 +124,20 @@ As a learner, I want flashcards loaded from a file so that study material can be
 
 Acceptance criteria:
 
-- The app reads each flashcard’s chapter, question, and correct answer.
-- Valid flashcards added to the file are available when the app starts again.
-- Missing, unreadable, or incorrectly formatted files produce an error without crashing or overwriting the file.
-- An empty file produces a message explaining that no quiz is available.
+- Given a valid flashcard file exists, when the app starts, then it loads each flashcard's chapter, question, and correct answer.
+- Given new flashcards are added to the file, when the app restarts, then they are available.
+- Given the file is missing, unreadable, or incorrectly formatted, when the app loads it, then it displays an error without crashing or overwriting the file.
+- Given the file is empty, when I start a quiz, then the app explains that no questions are available.
 
 #### 2. Random questions
 
-As a learner, I want randomly selected questions so that I can practise different parts of a chapter.
+As a learner, I want questions in a random order so that I can practise without memorizing their sequence.
 
 Acceptance criteria:
 
-- The quiz contains the requested number of questions from the selected chapter.
-- No flashcard appears twice within the same quiz.
-- Questions appear one at a time in a randomized order.
+- Given I select a chapter, when the quiz starts, then all questions from that chapter are included.
+- Given the quiz starts, when questions are displayed, then they appear in a randomized order.
+- Given I complete a quiz, then no question has appeared more than once.
 
 #### 3. Retry mistakes
 
@@ -142,6 +145,7 @@ As a learner, I want to retry questions I answered incorrectly so that I can pra
 
 Acceptance criteria:
 
-- After a quiz, I can retry only the questions I answered incorrectly.
-- The retry starts with a new score and is saved as a separate attempt.
-- If I answered everything correctly, the app explains that there are no questions to retry.
+- Given I made mistakes, when I choose "Retry Mistakes," then a new quiz starts with only those questions.
+- Given I start a retry, when the questions appear, then the score starts at zero.
+- Given I finish a retry, when the result is calculated, then it is saved as a separate attempt.
+- Given I made no mistakes, when I choose to retry, then the app explains that there are no questions to retry.
