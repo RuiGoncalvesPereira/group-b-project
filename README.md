@@ -29,7 +29,7 @@ Some basic features are needed for the application to work. These are shared res
 
 ### Marisa
 
-#### 1. Add flashcards
+#### 1. Add flashcards 
 
 As a learner, I want to add new flashcards so that I can expand my study material.
 
