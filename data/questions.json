@@ -1,0 +1,9 @@
+{
+  "Python basics": [
+    {"question": "Which keyword defines a function?", "answer": "def"},
+    {"question": "What does len([1, 2, 3]) return?", "answer": "3"}
+  ],
+  "Geography": [
+    {"question": "What is the capital of Switzerland?", "answer": "Bern"}
+  ]
+}
