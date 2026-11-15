@@ -78,7 +78,7 @@ As a learner, I want to review my incorrect answers so that I know what to study
 
 #### US-04: Choose a chapter
 
-**Responsible:** Dayhe Kim
+**Responsible:** Dahye Kim
 
 As a learner, I want to choose a chapter so that I can focus on the material I need to study.
 
@@ -91,7 +91,7 @@ As a learner, I want to choose a chapter so that I can focus on the material I n
 
 #### US-05: View quiz progress
 
-**Responsible:** Dayhe Kim
+**Responsible:** Dahye Kim
 
 As a learner, I want to see my progress during a quiz so that I know how many questions are left.
 
@@ -103,7 +103,7 @@ As a learner, I want to see my progress during a quiz so that I know how many qu
 
 #### US-06: View past scores
 
-**Responsible:** Dayhe Kim
+**Responsible:** Dahye Kim
 
 As a learner, I want to view my past scores so that I can compare my performance over time.
 
@@ -347,7 +347,7 @@ The following table records planned responsibilities. It will be updated with ac
 | Name | Assigned stories | Planned contribution |
 |------|------------------|----------------------|
 | Marisa | US-01, US-02, US-03 | Add flashcards, calculate and display final scores, and review mistakes. |
-| Dayhe Kim | US-04, US-05, US-06 | Chapter selection, quiz progress and past-score display. |
+| Dahye Kim | US-04, US-05, US-06 | Chapter selection, quiz progress and past-score display. |
 | Rui | US-07, US-08, US-09 | Answer checking and feedback, flashcard editing and score filtering. |
 | Amanuel | US-10, US-11, US-12 | Flashcard loading, random question order and retrying mistakes. |
 | Whole group | Shared functionality | Main menu, saving results, shared error handling and integration. |
