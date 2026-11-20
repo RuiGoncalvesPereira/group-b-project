@@ -4,14 +4,10 @@
 # Created on Tue 17/11/2026
 # =============================================
 
-
-question_answer = "Test question"
-test_answer = "True"
-
-def check_answer():
-    if test_answer.strip == "":
-        print("i'm empty")
-    print("i'm not empty!")
+def check_answer(answer, question_answer):
+    if answer.strip().lower() != question_answer.strip().lower():
+        print("Incorrect!")
+    else: print("Correct!")
 
 
-check_answer()
+check_answer("True", "True")
