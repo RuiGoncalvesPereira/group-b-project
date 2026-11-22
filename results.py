@@ -21,7 +21,7 @@ def filter_results(results, selected_chapter):
     filtered_results = []
 
     for result in results:
-        if result["chapter"] == selected_chapter:
+        if selected_chapter == "All" or result["chapter"] == selected_chapter:
             filtered_results.append(result)
     
     #sort by the newest results
@@ -33,4 +33,4 @@ def filter_results(results, selected_chapter):
         for result in filtered_results:
             print(result)
 
-filter_results(results, "Math")
+filter_results(results, "All")
