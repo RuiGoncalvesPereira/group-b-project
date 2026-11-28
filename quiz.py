@@ -19,3 +19,25 @@ def check_answer(answer, question_answer):
 
 result = check_answer("", "True")
 print(result)
+
+# reviw mistakes 
+def review_mistakes(mistakes):
+
+    print("\n--- REVIEW YOUR MISTAKES ---")
+
+mistakes = []
+mistakes.append({
+     "question": question,
+    "user_answer": user_answer,
+    "correct_answer": answer
+})
+
+if len(mistakes) == 0:
+    print("No mistakes to review.")
+
+else:
+     for item in mistakes:
+            print("\nQuestion:")
+            print(item["question"])
+            print(f"Your answer: {item['user_answer']}")
+            print(f"Correct answer: {item['correct_answer']}")
